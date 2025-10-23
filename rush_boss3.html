@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <title>Catch da link!!! Hell Nawh</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+</head>
+<style>
+    .nav{
+        text-align: center;
+        align-self: center;
+        width: 200%;
+        font-size: xx-small;
+    }
+    .title{
+    align-self: center;
+     display: block;
+    margin: 0 auto;
+    }
+    .bossbar{
+        text-align: center;
+        color: rgb(65, 163, 0);
+        font-family: monospace;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+<body>
+    <div style="text-align:center; margin:10px 0;">
+        <button id="audioToggle" aria-pressed="true" title="Toggle music"
+            style="background:#0a0;color:#fff;border:2px solid #555;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">
+            🔊 Music: ON
+        </button>
+        <audio id="bgAudio" loop>
+            <source src="assets/shreksong_pt3.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        (function(){
+            const audio = document.getElementById('bgAudio');
+            const btn = document.getElementById('audioToggle');
+
+            // Remember user preference; default = ON
+            let preferredOn = localStorage.getItem('music') !== 'off';
+
+            // Ensure audio element configured
+            audio.loop = true;
+
+            function updateButton() {
+                const isPlaying = !audio.paused;
+                // Show ON when user preference wants audio on and audio is playing (even if currently muted due to autoplay policy)
+                if (preferredOn && isPlaying) {
+                    btn.textContent = '🔊 Music: ON';
+                    btn.style.background = '#0a0';
+                    btn.setAttribute('aria-pressed','true');
+                } else if (isPlaying && audio.muted) {
+                    btn.textContent = '🔈 Music: ON (muted)';
+                    btn.style.background = '#886';
+                    btn.setAttribute('aria-pressed','true');
+                } else {
+                    btn.textContent = '🔇 Music: OFF';
+                    btn.style.background = '#222';
+                    btn.setAttribute('aria-pressed','false');
+                }
+            }
+
+            // Attempt unmuted autoplay if preferred; otherwise ensure muted autoplay (so play is active and can be unmuted on interaction)
+            function tryAutoplay() {
+                if (!preferredOn) {
+                    // user preference is off — keep paused
+                    audio.pause();
+                    audio.muted = true;
+                    updateButton();
+                    return;
+                }
+
+                audio.muted = false;
+                audio.play().then(() => {
+                    // succeeded unmuted
+                    updateButton();
+                }).catch(() => {
+                    // unmuted autoplay blocked -> start muted autoplay so playback exists and we can unmute on first user interaction
+                    audio.muted = true;
+                    audio.play().catch(()=>{}).finally(()=>updateButton());
+
+                    // On first user interaction, unmute and play (makes it effectively "on by default" after interaction)
+                    const enableUnmute = () => {
+                        // still honor preferredOn
+                        if (!preferredOn) return;
+                        audio.muted = false;
+                        audio.play().catch(()=>{});
+                        updateButton();
+                    };
+                    ['pointerdown','touchstart','keydown'].forEach(ev =>
+                        document.addEventListener(ev, enableUnmute, { once: true, passive: true })
+                    );
+                });
+            }
+
+            // Toggle behavior: turn on (unmute+play) or off (mute+pause)
+            btn.addEventListener('click', () => {
+                if (audio.paused || audio.muted) {
+                    preferredOn = true;
+                    localStorage.setItem('music','on');
+                    audio.muted = false;
+                    audio.play().catch(()=>{});
+                } else {
+                    preferredOn = false;
+                    localStorage.setItem('music','off');
+                    audio.muted = true;
+                    audio.pause();
+                }
+                updateButton();
+            });
+
+            // Keep UI in sync with actual audio state
+            audio.addEventListener('play', updateButton);
+            audio.addEventListener('pause', updateButton);
+            audio.addEventListener('volumechange', updateButton);
+
+            // Start autoplay attempt
+            tryAutoplay();
+
+            // initial label
+            updateButton();
+        })();
+    </script>
+    <img class="title" src="assets/logo.png" alt="Catch da link!!!">
+    <h3 class="bossbar">THE ALL MIGHTY SHREK MADE FROM SYMBOLS OR SUM SHIT</h1>
+    <h1 class="bossbar">[████________________]</h1>
+    <div style="writing-mode: vertical-rl; text-orientation: sideways;">
+        <table style="text-align:center; width:500px;">
+        <h1 style="align-self: center; color:rgb(34, 98, 0); font-size:200px;">}:(       )</h1>
+        </table></div>
+        <h1 style="text-align: center;">WHATEVER IS YOUR PLAN, YOU'LL NEVER GET TROUGH THIS!!! HAHAHAHAHAHA!!!</h1>
+    <table style="border: 2px solid black; width:100%; height:1000px;">
+        <tr>
+            <td>
+<div class="nav"></div>
+    <marquee direction="left" scrollamount="100"><marquee direction="up" scrollamount="79" vspace="10"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="93"><marquee direction="down" scrollamount="103" vspace="8"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="88"><marquee direction="up" scrollamount="76" vspace="11"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="105"><marquee direction="down" scrollamount="99" vspace="12"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="81"><marquee direction="up" scrollamount="87" vspace="5"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="102"><marquee direction="down" scrollamount="78" vspace="9"><a style="color: rgb(0, 0, 0); font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="97"><marquee direction="up" scrollamount="105" vspace="7"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="84"><marquee direction="down" scrollamount="90" vspace="10"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="91"><marquee direction="up" scrollamount="100" vspace="6"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="87"><marquee direction="down" scrollamount="82" vspace="11"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="103"><marquee direction="up" scrollamount="94" vspace="10"><a style="color: rgb(0, 0, 0); font-size:10px;" href="ulose_boss">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="76"><marquee direction="down" scrollamount="102" vspace="8"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="105"><marquee direction="up" scrollamount="81" vspace="11"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="85"><marquee direction="down" scrollamount="97" vspace="12"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="99"><marquee direction="up" scrollamount="88" vspace="5"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="90"><marquee direction="down" scrollamount="105" vspace="9"><a style="color: rgb(0, 0, 0); font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="79"><marquee direction="up" scrollamount="93" vspace="7"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="103"><marquee direction="down" scrollamount="84" vspace="10"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="82"><marquee direction="up" scrollamount="96" vspace="6"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="94"><marquee direction="down" scrollamount="85" vspace="11"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="100"><marquee direction="up" scrollamount="79" vspace="10"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="93"><marquee direction="down" scrollamount="103" vspace="8"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="88"><marquee direction="up" scrollamount="76" vspace="11"><a style="color: rgb(0, 101, 3); font-size:10px;" href="uwin_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="105"><marquee direction="down" scrollamount="99" vspace="12"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="81"><marquee direction="up" scrollamount="87" vspace="5"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="102"><marquee direction="down" scrollamount="78" vspace="9"><a style="color: rgb(0, 0, 0); font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="97"><marquee direction="up" scrollamount="105" vspace="7"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="84"><marquee direction="down" scrollamount="90" vspace="10"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="91"><marquee direction="up" scrollamount="100" vspace="6"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="87"><marquee direction="down" scrollamount="82" vspace="11"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="103"><marquee direction="up" scrollamount="94" vspace="10"><a style="color: rgb(0, 0, 0); font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="76"><marquee direction="down" scrollamount="102" vspace="8"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="105"><marquee direction="up" scrollamount="81" vspace="11"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="85"><marquee direction="down" scrollamount="97" vspace="12"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="99"><marquee direction="up" scrollamount="88" vspace="5"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="90"><marquee direction="down" scrollamount="105" vspace="9"><a style="color: rgb(0, 0, 0); font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="79"><marquee direction="up" scrollamount="93" vspace="7"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="103"><marquee direction="down" scrollamount="84" vspace="10"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="left" scrollamount="82"><marquee direction="up" scrollamount="96" vspace="6"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+        <marquee direction="right" scrollamount="94"><marquee direction="down" scrollamount="85" vspace="11"><a style="color: black; font-size:10px;" href="ulose_boss.html">LINK </a> </marquee></marquee>
+                            </td>
+        <tr>
+    </table>
+    <a style="color: rgb(0, 0, 0);" href="index.html">Escape!!!</a>
+</body>
+</html>
