@@ -17,6 +17,9 @@
     margin: 0 auto;
 
     }
+    body{
+    background-color:rgb(255, 240, 221);
+}
 </style>
 <body>
     <img class="title" src="assets/logo.png" alt="Catch da link!!!">
@@ -39,5 +42,104 @@
         <tr>
     </table>
     <a style="color: rgb(0, 0, 0);" href="index.html">Ragequit</a>
+    <br />
+    <button id="audioToggle" aria-pressed="true" title="Toggle music"
+            style="background:#0a0;color:#fff;border:2px solid #555;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">
+            🔊 Music: ON
+        </button>
+        <audio id="bgAudio" loop>
+            <source src="assets/sicksong_inst.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+    <script>
+        (function(){
+            const audio = document.getElementById('bgAudio');
+            const btn = document.getElementById('audioToggle');
+
+            // Remember user preference; default = ON
+            let preferredOn = localStorage.getItem('music') !== 'off';
+
+            // Ensure audio element configured
+            audio.loop = true;
+
+            function updateButton() {
+                const isPlaying = !audio.paused;
+                // Show ON when user preference wants audio on and audio is playing (even if currently muted due to autoplay policy)
+                if (preferredOn && isPlaying) {
+                    btn.textContent = '🔊 Music: ON';
+                    btn.style.background = '#0a0';
+                    btn.setAttribute('aria-pressed','true');
+                } else if (isPlaying && audio.muted) {
+                    btn.textContent = '🔈 Music: ON (muted)';
+                    btn.style.background = '#886';
+                    btn.setAttribute('aria-pressed','true');
+                } else {
+                    btn.textContent = '🔇 Music: OFF';
+                    btn.style.background = '#222';
+                    btn.setAttribute('aria-pressed','false');
+                }
+            }
+
+            // Attempt unmuted autoplay if preferred; otherwise ensure muted autoplay (so play is active and can be unmuted on interaction)
+            function tryAutoplay() {
+                if (!preferredOn) {
+                    // user preference is off — keep paused
+                    audio.pause();
+                    audio.muted = true;
+                    updateButton();
+                    return;
+                }
+
+                audio.muted = false;
+                audio.play().then(() => {
+                    // succeeded unmuted
+                    updateButton();
+                }).catch(() => {
+                    // unmuted autoplay blocked -> start muted autoplay so playback exists and we can unmute on first user interaction
+                    audio.muted = true;
+                    audio.play().catch(()=>{}).finally(()=>updateButton());
+
+                    // On first user interaction, unmute and play (makes it effectively "on by default" after interaction)
+                    const enableUnmute = () => {
+                        // still honor preferredOn
+                        if (!preferredOn) return;
+                        audio.muted = false;
+                        audio.play().catch(()=>{});
+                        updateButton();
+                    };
+                    ['pointerdown','touchstart','keydown'].forEach(ev =>
+                        document.addEventListener(ev, enableUnmute, { once: true, passive: true })
+                    );
+                });
+            }
+
+            // Toggle behavior: turn on (unmute+play) or off (mute+pause)
+            btn.addEventListener('click', () => {
+                if (audio.paused || audio.muted) {
+                    preferredOn = true;
+                    localStorage.setItem('music','on');
+                    audio.muted = false;
+                    audio.play().catch(()=>{});
+                } else {
+                    preferredOn = false;
+                    localStorage.setItem('music','off');
+                    audio.muted = true;
+                    audio.pause();
+                }
+                updateButton();
+            });
+
+            // Keep UI in sync with actual audio state
+            audio.addEventListener('play', updateButton);
+            audio.addEventListener('pause', updateButton);
+            audio.addEventListener('volumechange', updateButton);
+
+            // Start autoplay attempt
+            tryAutoplay();
+
+            // initial label
+            updateButton();
+        })();
+    </script>
 </body>
 </html>
