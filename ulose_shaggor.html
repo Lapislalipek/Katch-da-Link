@@ -10,11 +10,14 @@
         font-family: bony;
         src: url('assets/fonts/Bony Regular.ttf');
     }
+    body{
+        font-family: bony;
+        background-color:#555;
+    }
 .title{
     align-self: center;
-    display: block;
+     display: block;
     margin: 0 auto;
-    width: 750px;
 }
 .color{
     color: red;
@@ -22,53 +25,58 @@
     font-weight: bold;
     text-align: center;
 }
-.text{
-    text-align:center;
-}
-.nav {
+.align{
     text-align: center;
-    margin: 20px auto;
+    font-size:30px;
 }
-.nav a {
-    margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
+.bossbar{
+    text-align: center;
+    color: rgb(65, 163, 0);
+    font-family: monospace;
+    padding: 10px;
+    margin-bottom: 20px;
 }
-body{
-    background-color:rgb(229, 255, 234);
+.head{
+width:200px;
 }
-b{
-    font-family:bony;
+.boss{
+    text-align: center;
+}
+.dial{
+    font-size:40px;
+    color:#0a0;
+    text-shadow:3px 3px 2px black;
+}
+.bossbar{
+    color:#0a0;
+    padding:0px;
+    font-family:sans-serif;
+}
+.bossbartext{
+text-align: center;
+font-size:30px;
+text-shadow:2px 2px 3px black;
+color:#0a0;
 }
 </style>
 <body>
-    <marquee direction="down" scrollamount="2">
-    <tr>
     <img class="title" src="assets/logo.png" alt="Catch da link!!!">
-    </tr>
-    </marquee>
-    <br />
-    <h1 class="text">SELECT A GOOD DAMN DIFFICULTY FOR YOURSELF!!!</h1>
-    <hr style="border-color: blue;"/>
-        <div class="nav">
-        <a style="color: rgb(0, 149, 10);" href="level_easy.html">EASY</a>
-        <a style="color: rgb(252, 172, 0);" href="level_normal.html">NORMAL</a>
-        <a style="color: rgb(255, 0, 0);" href="level_hard.html">HARD</a>
-        <a style="color: rgb(255, 0, 230);" href="level_shit.html">AW HELL NAWH</a>
-        <a style="color: rgb(0, 98, 255);" href="level_rush.html">RUSH</a>
-        <a style="color: rgb(122, 122, 122);" href="dungeon_1.html"><b>DUNGEON</b></a>
-        <hr style="border-color: blue;"/>
-        <br /><br /><br />
-        <a href="wut.html">What the hell is this?</a>
-        <br /><br /><br /><br /><br /><br /><br /><br />
-        <h1 style="color:yellow; background-color: black;">CONGRATS! YOU HAVE BEATEN SHREK!<br /><img src="assets/giphy.gif"></h1>
-        <div style="text-align:center; margin:10px 0;">
+    <p class="color"> YOU HAVE BEEN DEFEATED!</p>
+    <div class="boss">
+        <h1 class="bossbartext">SHAGGOR</h1>
+        <img class="head"src="assets/shaggor/shaggor_happy.png" alt="shaggor">
+        <h2 class="dial">You dumbass, you can't compete with Shaggor! ZOINKS!</h2>    
+        <h2 class="dial">Like, man! I haven't even gotten to warm up!</h2>     
+    </div>
+    <a style="color: rgb(0, 0, 0); font-size:20px; text-align:center;" href="index.html">Back</a>
+    </div>
+    <div style="text-align:center; margin:10px 0;">
         <button id="audioToggle" aria-pressed="true" title="Toggle music"
             style="background:#0a0;color:#fff;border:2px solid #555;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">
             🔊 Music: ON
         </button>
         <audio id="bgAudio" loop>
-            <source src="assets/shreksong_full.ogg" type="audio/ogg">
+            <source src="assets/lose.ogg" type="audio/ogg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -163,21 +171,5 @@ b{
             updateButton();
         })();
     </script>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <p style="color:blue">MADE BY LAPISLALIPEK</p>
-        <p style="color:rgb(6, 122, 0)" style="font-size:10px;">(Thanks for playing!)</p>
-        <p id="secret-link" style="color:rgb(0, 0, 0); cursor:pointer; user-select:none;">Katch 1.5</p>
-        <script>
-        let secretClicks = 0;
-        document.getElementById('secret-link').addEventListener('click', function() {
-            secretClicks++;
-            if (secretClicks === 3) {
-                window.location.href = 'level_impossible_do_not_attempt_bruh.html';
-            }
-        });
-        </script>
-        
-    </div>
-    </table>
 </body>
 </html>

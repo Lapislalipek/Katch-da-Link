@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head> 
     <meta charset="UTF-8">
-    <title>Catch da link!!!</title>
+    <title>Catch da link!!! Dungeon</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
 </head>
 <style>
@@ -10,69 +11,98 @@
         font-family: bony;
         src: url('assets/fonts/Bony Regular.ttf');
     }
-.title{
+    .nav{
+        text-align: center;
+        align-self: center;
+    }
+    .title{
     align-self: center;
-    display: block;
+     display: block;
     margin: 0 auto;
-    width: 750px;
+    }
+    body{
+    background-color:rgb(116, 116, 116);
+    font-family: bony;
 }
-.color{
-    color: red;
-    font-size: 48px;
-    font-weight: bold;
+marquee{
+    padding:10px;
+}
+.head{
+    width:200px;
+}
+.boss{
     text-align: center;
 }
-.text{
-    text-align:center;
+.dial{
+    font-size:40px;
+    color:#0a0;
+    text-shadow:3px 3px 2px black;
 }
-.nav {
-    text-align: center;
-    margin: 20px auto;
+.bossbar{
+    color:#0a0;
+    padding:0px;
+    font-family:sans-serif;
 }
-.nav a {
-    margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
+.flip {
+    transform: scaleY(-1);
+    animation: blink 5.5s ease-in infinite;
 }
-body{
-    background-color:rgb(229, 255, 234);
+@keyframes blink {
+    0%,25%,100% { transform: scaleY(-1); }
+    50%,75%{ transform: scaleY(1); }
 }
-b{
-    font-family:bony;
+.bossbartext{
+text-align: center;
+font-size:30px;
+text-shadow:2px 2px 3px black;
+color:#0a0;
 }
 </style>
 <body>
-    <marquee direction="down" scrollamount="2">
-    <tr>
     <img class="title" src="assets/logo.png" alt="Catch da link!!!">
-    </tr>
-    </marquee>
+    <div class="boss">
+        <h1 class="bossbartext">SHAGGOR</h1>
+        <h1 class="bossbar"><b style="color:rgb(185, 31, 31); font-size:larger;">♥ </b>[███████████████_____]</h1>
+        <img class="head"src="assets/shaggor/shaggor2.png" alt="shaggor">
+        <h2 class="dial">Ow , this is not nice</h2>
+        <h2 class="dial">Frick off >:(</h2>
+        </div>
+        <table style="border: 2px solid black; width:100%; height:400px;">
+            <tr>
+                <td class="flip">
+                        <div class="nav">
+                        <marquee direction="left" scrollamount="26"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="28"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="27"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="30"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="29"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="26"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="28"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="27"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="30"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="29"><a style="color: rgb(0, 0, 0);" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="31"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="33"><a style="color: rgb(25, 126, 0);" href="dungeon_shaggor4.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="26"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="28"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="27"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="30"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="left" scrollamount="29"><a style="color: rgb(0, 0, 0);" href="ulose_shaggor.html">LINK </a> </marquee>
+                        <marquee direction="right" scrollamount="32"><a style="color: black;" href="ulose_shaggor.html">LINK </a> </marquee>
+
+            </td>
+        <tr>
+    </table>
+    <a style="color: rgb(0, 0, 0);" href="index.html">Leave</a>
     <br />
-    <h1 class="text">SELECT A GOOD DAMN DIFFICULTY FOR YOURSELF!!!</h1>
-    <hr style="border-color: blue;"/>
-        <div class="nav">
-        <a style="color: rgb(0, 149, 10);" href="level_easy.html">EASY</a>
-        <a style="color: rgb(252, 172, 0);" href="level_normal.html">NORMAL</a>
-        <a style="color: rgb(255, 0, 0);" href="level_hard.html">HARD</a>
-        <a style="color: rgb(255, 0, 230);" href="level_shit.html">AW HELL NAWH</a>
-        <a style="color: rgb(0, 98, 255);" href="level_rush.html">RUSH</a>
-        <a style="color: rgb(122, 122, 122);" href="dungeon_1.html"><b>DUNGEON</b></a>
-        <hr style="border-color: blue;"/>
-        <br /><br /><br />
-        <a href="wut.html">What the hell is this?</a>
-        <br /><br /><br /><br /><br /><br /><br /><br />
-        <h1 style="color:yellow; background-color: black;">CONGRATS! YOU HAVE BEATEN SHREK!<br /><img src="assets/giphy.gif"></h1>
-        <div style="text-align:center; margin:10px 0;">
-        <button id="audioToggle" aria-pressed="true" title="Toggle music"
+    <button id="audioToggle" aria-pressed="true" title="Toggle music"
             style="background:#0a0;color:#fff;border:2px solid #555;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">
             🔊 Music: ON
         </button>
         <audio id="bgAudio" loop>
-            <source src="assets/shreksong_full.ogg" type="audio/ogg">
+            <source src="assets/shaggorbattle.ogg" type="audio/ogg">
             Your browser does not support the audio element.
         </audio>
-    </div>
-
     <script>
         (function(){
             const audio = document.getElementById('bgAudio');
@@ -163,21 +193,5 @@ b{
             updateButton();
         })();
     </script>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <p style="color:blue">MADE BY LAPISLALIPEK</p>
-        <p style="color:rgb(6, 122, 0)" style="font-size:10px;">(Thanks for playing!)</p>
-        <p id="secret-link" style="color:rgb(0, 0, 0); cursor:pointer; user-select:none;">Katch 1.5</p>
-        <script>
-        let secretClicks = 0;
-        document.getElementById('secret-link').addEventListener('click', function() {
-            secretClicks++;
-            if (secretClicks === 3) {
-                window.location.href = 'level_impossible_do_not_attempt_bruh.html';
-            }
-        });
-        </script>
-        
-    </div>
-    </table>
 </body>
 </html>

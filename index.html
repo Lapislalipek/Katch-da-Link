@@ -6,6 +6,10 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
 </head>
 <style>
+    @font-face {
+        font-family: bony;
+        src: url('assets/fonts/Bony Regular.ttf');
+    }
 .title{
     align-self: center;
      display: block;
@@ -33,6 +37,9 @@
 body{
     background-color:rgb(229, 254, 255);
 }
+b{
+    font-family:bony;
+}
 </style>
 <body>
     <marquee direction="down" scrollamount="2">
@@ -49,12 +56,13 @@ body{
         <a style="color: rgb(255, 0, 0);" href="level_hard.html">HARD</a>
         <a style="color: rgb(255, 0, 230);" href="level_shit.html">AW HELL NAWH</a>
         <a style="color: rgb(0, 98, 255);" href="level_rush.html">RUSH</a>
+        <a style="color: rgb(122, 122, 122);" href="dungeon_1.html"><b>DUNGEON</b></a>
         <hr style="border-color: blue;"/>
         <br /><br /><br />
         <a href="wut.html">What the hell is this?</a>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <p style="color:blue">MADE BY LAPISLALIPEK</p>
-        <p id="secret-link" style="color:rgb(0, 0, 0); cursor:pointer; user-select:none;">Katch 1.4</p>
+        <p id="secret-link" style="color:rgb(0, 0, 0); cursor:pointer; user-select:none;">Katch 1.5</p>
         <script>
         let secretClicks = 0;
         document.getElementById('secret-link').addEventListener('click', function() {

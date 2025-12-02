@@ -10,65 +10,90 @@
         font-family: bony;
         src: url('assets/fonts/Bony Regular.ttf');
     }
+    body{
+        font-family: bony;
+        background-color:#d1fff6;
+    }
 .title{
     align-self: center;
-    display: block;
+     display: block;
     margin: 0 auto;
-    width: 750px;
 }
 .color{
-    color: red;
+    color: rgb(8, 235, 0);
     font-size: 48px;
     font-weight: bold;
     text-align: center;
 }
-.text{
-    text-align:center;
-}
-.nav {
+.align{
     text-align: center;
-    margin: 20px auto;
+    font-size:30px;
 }
-.nav a {
-    margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
+.bossbar{
+    text-align: center;
+    color: rgb(65, 163, 0);
+    font-family: monospace;
+    padding: 10px;
+    margin-bottom: 20px;
 }
-body{
-    background-color:rgb(229, 255, 234);
+.head{
+width:200px;
 }
-b{
-    font-family:bony;
+.boss{
+    text-align: center;
+}
+.dial{
+    font-size:40px;
+    color:#0a0;
+    text-shadow:3px 3px 2px black;
+}
+.bossbar{
+    color:#0a0;
+    padding:0px;
+    font-family:sans-serif;
+}
+.bossbartext{
+text-align: center;
+font-size:30px;
+text-shadow:2px 2px 3px black;
+color:#0a0;
+}
+.normaltext{
+    font-family: sans-serif;
 }
 </style>
 <body>
-    <marquee direction="down" scrollamount="2">
-    <tr>
     <img class="title" src="assets/logo.png" alt="Catch da link!!!">
-    </tr>
-    </marquee>
-    <br />
-    <h1 class="text">SELECT A GOOD DAMN DIFFICULTY FOR YOURSELF!!!</h1>
-    <hr style="border-color: blue;"/>
-        <div class="nav">
-        <a style="color: rgb(0, 149, 10);" href="level_easy.html">EASY</a>
-        <a style="color: rgb(252, 172, 0);" href="level_normal.html">NORMAL</a>
-        <a style="color: rgb(255, 0, 0);" href="level_hard.html">HARD</a>
-        <a style="color: rgb(255, 0, 230);" href="level_shit.html">AW HELL NAWH</a>
-        <a style="color: rgb(0, 98, 255);" href="level_rush.html">RUSH</a>
-        <a style="color: rgb(122, 122, 122);" href="dungeon_1.html"><b>DUNGEON</b></a>
-        <hr style="border-color: blue;"/>
-        <br /><br /><br />
-        <a href="wut.html">What the hell is this?</a>
-        <br /><br /><br /><br /><br /><br /><br /><br />
-        <h1 style="color:yellow; background-color: black;">CONGRATS! YOU HAVE BEATEN SHREK!<br /><img src="assets/giphy.gif"></h1>
-        <div style="text-align:center; margin:10px 0;">
+    <p class="color"> YOU HAVE DEFEATED SHAGGOR!!</p>
+    <div class="boss">
+        <h1 class="bossbartext">SHAGGOR</h1>
+        <img class="head"src="assets/shaggor/shaggor_happy.png" alt="shaggor">
+        <h2 class="dial">Well, that was a nice one. Too bad I only used 0.05% of my true power</h2>    
+        <h2 class="dial">Would like to do that again, but like, I don't have time. Cheers!</h2>     
+    </div>
+    <div class="normaltext">
+            <h2>Creator</h2>
+            Lapislalipek
+            <h2>Mental support</h2>
+            Mietek z Tandolii
+            <h2>Idea</h2>
+            Lapislalipek
+            <h2>Execution</h2>
+            Lapislalipek
+            <h2>Testers</h2>
+            Droolie<br />
+            Mietek z Tandolii<br />
+            Blaster3800<br />
+            Bradday123<br /><hr />
+        <h1 style="text-align:center;"><a style="color: rgb(0, 0, 0);" href="index_aftershaggor.html">Back to the menu</a></h1>
+        </div>
+    <div style="text-align:center; margin:10px 0;">
         <button id="audioToggle" aria-pressed="true" title="Toggle music"
             style="background:#0a0;color:#fff;border:2px solid #555;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">
             🔊 Music: ON
         </button>
         <audio id="bgAudio" loop>
-            <source src="assets/shreksong_full.ogg" type="audio/ogg">
+            <source src="assets/win_real.ogg" type="audio/ogg">
             Your browser does not support the audio element.
         </audio>
     </div>
@@ -163,21 +188,5 @@ b{
             updateButton();
         })();
     </script>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <p style="color:blue">MADE BY LAPISLALIPEK</p>
-        <p style="color:rgb(6, 122, 0)" style="font-size:10px;">(Thanks for playing!)</p>
-        <p id="secret-link" style="color:rgb(0, 0, 0); cursor:pointer; user-select:none;">Katch 1.5</p>
-        <script>
-        let secretClicks = 0;
-        document.getElementById('secret-link').addEventListener('click', function() {
-            secretClicks++;
-            if (secretClicks === 3) {
-                window.location.href = 'level_impossible_do_not_attempt_bruh.html';
-            }
-        });
-        </script>
-        
-    </div>
-    </table>
 </body>
 </html>
