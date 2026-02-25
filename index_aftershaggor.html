@@ -6,6 +6,14 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
 </head>
 <style>
+    @keyframes resize{
+        0% { padding:10px;}
+        100% { padding:22px; color:aqua;}
+    }
+    @keyframes resizescary{
+        0% { padding:10px; }
+        100% { padding:22px; background-color:rgb(52, 52, 52);}
+    }
     @font-face {
         font-family: bony;
         src: url('assets/fonts/Bony Regular.ttf');
@@ -40,30 +48,70 @@ body{
 b{
     font-family:bony;
 }
+.bottom{
+    text-align: center;
+    margin-top: 100px;
+}
+.button{
+    border-radius: 90px;
+    padding:10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.button:hover{
+    animation: resize 0.5s forwards;
+    color: aqua;
+}
+.buttonscary{
+    border-radius: 90px;
+    padding:10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.buttonscary:hover{
+    animation: resizescary 0.5s forwards;
+    color:rgb(255, 0, 0);
+}
+.levelcomp{
+    margin:10px;
+}
 </style>
 <body>
-    <marquee direction="down" scrollamount="2">
-    <tr>
     <img class="title" src="assets/logo.png" alt="Catch da link!!!">
-    </tr>
-    </marquee>
     <br />
     <h1 class="text">SELECT A GOOD DAMN DIFFICULTY FOR YOURSELF!!!</h1>
-    <hr style="border-color: blue;"/>
-        <div class="nav">
-        <a style="color: rgb(0, 149, 10);" href="level_easy.html">EASY</a>
-        <a style="color: rgb(252, 172, 0);" href="level_normal.html">NORMAL</a>
-        <a style="color: rgb(255, 0, 0);" href="level_hard.html">HARD</a>
-        <a style="color: rgb(255, 0, 230);" href="level_shit.html">AW HELL NAWH</a>
-        <a style="color: rgb(0, 98, 255);" href="level_rush.html">RUSH</a>
-        <a style="color: rgb(122, 122, 122);" href="dungeon_1.html"><b>DUNGEON</b></a>
-        <hr style="border-color: blue;"/>
-        <br /><br /><br />
-        <a href="wut.html">What the hell is this?</a>
-        <br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="nav"> 
+        <h3 style="background-color: rgba(0, 149, 200, 0.2); border-radius: 15px; padding: 10px;">Basic levels</h3> 
+        <a class="button" style="background-color: rgb(0, 149, 10);" href="level_easy.html">EASY</a>
+        <a class="button" style="background-color: rgb(252, 172, 0); " href="level_normal.html">NORMAL</a>
+        <a class="button" style="background-color: rgb(255, 0, 0);" href="level_hard.html">HARD</a>
+        <a class="button" style="background-color: rgb(255, 0, 230);" href="level_shit.html">AW HELL NAWH</a>
+
+        <h3 style="background-color: rgba(0, 149, 200, 0.2); border-radius: 15px; padding: 10px;">Level Compilations</h3>
+    <div class="levelcomp">
+        <a class="button" style="background-color: rgb(0, 98, 255);" href="level_rush.html">RUSH</a>
+        <a class="buttonscary" style="background-color: rgb(122, 122, 122);" href="dungeon_1.html"><b>DUNGEON</b></a>
+        <a class="button" style="background-color: rgb(175, 108, 41);" href="dungeon_shaggor1.html"><b>Shaggor</b></a>
+        
         <h1 style="color:rgb(18, 253, 14); background-color: black; font-family:bony;">CONGRATS! YOU HAVE ENCOUNTERED SHAGGOR!<br /><img src="assets/shaggor/shaggor_real.gif"></h1>
-        <div style="text-align:center; margin:10px 0;">
-        <button id="audioToggle" aria-pressed="true" title="Toggle music"
+        
+    <div class="bottom">
+        <br />
+        <a href="wut.html" style="background-color: rgba(25, 184, 0, 0.2); border-radius: 15px; padding: 1px; display: inline-flex; font-size:35px; margin-top:15px;">Manual</a>
+        <p style="color:blue">MADE BY LAPISLALIPEK, Thanks for playing!</p>
+        <p id="secret-link" style="color:rgb(0, 0, 0); cursor:pointer; user-select:none;">Katch 1.5.5</p>
+        <script>
+        let secretClicks = 0;
+        document.getElementById('secret-link').addEventListener('click', function() {
+            secretClicks++;
+            if (secretClicks === 3) {
+                window.location.href = 'level_impossible_do_not_attempt_bruh.html';
+            }
+        });
+        </script>
+        <br />
+        <br />
+        <br />
+        <br />
+    <button id="audioToggle" aria-pressed="true" title="Toggle music"
             style="background:#0a0;color:#fff;border:2px solid #555;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">
             🔊 Music: ON
         </button>
@@ -71,21 +119,16 @@ b{
             <source src="assets/shaggysong.ogg" type="audio/ogg">
             Your browser does not support the audio element.
         </audio>
-    </div>
     <script>
         (function(){
             const audio = document.getElementById('bgAudio');
             const btn = document.getElementById('audioToggle');
 
-            // Remember user preference; default = ON
             let preferredOn = localStorage.getItem('music') !== 'off';
-
-            // Ensure audio element configured
             audio.loop = true;
 
             function updateButton() {
                 const isPlaying = !audio.paused;
-                // Show ON when user preference wants audio on and audio is playing (even if currently muted due to autoplay policy)
                 if (preferredOn && isPlaying) {
                     btn.textContent = '🔊 Music: ON';
                     btn.style.background = '#0a0';
@@ -101,10 +144,8 @@ b{
                 }
             }
 
-            // Attempt unmuted autoplay if preferred; otherwise ensure muted autoplay (so play is active and can be unmuted on interaction)
             function tryAutoplay() {
                 if (!preferredOn) {
-                    // user preference is off — keep paused
                     audio.pause();
                     audio.muted = true;
                     updateButton();
@@ -113,16 +154,12 @@ b{
 
                 audio.muted = false;
                 audio.play().then(() => {
-                    // succeeded unmuted
                     updateButton();
                 }).catch(() => {
-                    // unmuted autoplay blocked -> start muted autoplay so playback exists and we can unmute on first user interaction
                     audio.muted = true;
                     audio.play().catch(()=>{}).finally(()=>updateButton());
 
-                    // On first user interaction, unmute and play (makes it effectively "on by default" after interaction)
                     const enableUnmute = () => {
-                        // still honor preferredOn
                         if (!preferredOn) return;
                         audio.muted = false;
                         audio.play().catch(()=>{});
@@ -134,7 +171,6 @@ b{
                 });
             }
 
-            // Toggle behavior: turn on (unmute+play) or off (mute+pause)
             btn.addEventListener('click', () => {
                 if (audio.paused || audio.muted) {
                     preferredOn = true;
@@ -150,34 +186,15 @@ b{
                 updateButton();
             });
 
-            // Keep UI in sync with actual audio state
             audio.addEventListener('play', updateButton);
             audio.addEventListener('pause', updateButton);
             audio.addEventListener('volumechange', updateButton);
 
-            // Start autoplay attempt
             tryAutoplay();
-
-            // initial label
             updateButton();
         })();
     </script>
-    
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <p style="color:blue">MADE BY LAPISLALIPEK</p>
-        <p style="color:rgb(6, 122, 0)" style="font-size:10px;">(Thanks for playing!)</p>
-        <p id="secret-link" style="color:rgb(0, 0, 0); cursor:pointer; user-select:none;">Katch 1.5</p>
-        <script>
-        let secretClicks = 0;
-        document.getElementById('secret-link').addEventListener('click', function() {
-            secretClicks++;
-            if (secretClicks === 3) {
-                window.location.href = 'level_impossible_do_not_attempt_bruh.html';
-            }
-        });
-        </script>
-        
     </div>
-    </table>
+    </div>
 </body>
 </html>
