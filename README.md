@@ -4,6 +4,12 @@ THIS PAGE ISN'T FOR ACTUAL GAMEPLAY!!
 You can play this game here >> https://lapislalipek.github.io/Katch-da-Link/index.html
 This link will redirect you to the main page.
 
+THIS GAME ISNT WORKING ON SOME BROWSERS:
+X Newest Google Chrome
+V Older Google Chrome
+V Firefox
+? Opera
+- Other
 
 This game is supposed to be more or less a trash game but it's turning out pretty good I guess?
 Trailer:
