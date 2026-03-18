@@ -8,7 +8,7 @@ THIS GAME ISNT WORKING ON SOME BROWSERS:
 - X Newest Google Chrome
 - V Older Google Chrome
 - V Firefox
-- ? Opera
+- V Opera
 - Other
 
 This game is supposed to be more or less a trash game but it's turning out pretty good I guess?
